@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威智教練 - OCEANIAN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            padding: 15px 0;
+        }
+        .header.scrolled {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .logo {
+            max-height: 50px;
+            transition: max-height 0.3s ease;
+        }
+        .header.scrolled .logo {
+            max-height: 40px;
+        }
+        main {
+            margin-top: 80px;
+        }
+        .instructor-header {
+            min-height: 100px;
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin-bottom: 20px;
+        }
+        .instructor-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .instructor-intro {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+        .instructor-content {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+        .instructor-info {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .instructor-details {
+            padding: 40px 0;
+            background-color: #f8f9fa;
+        }
+        .section-title {
+            color: #003366;
+            background-color: #fff;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .related-instructors {
+            padding: 40px 0;
+        }
+        .instructor-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .instructor-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .instructor-card:hover img {
+            transform: scale(1.1);
+        }
+        .instructor-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .instructor-card:hover::after {
+            opacity: 1;
+        }
+        .instructor-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            color: white;
+            z-index: 1;
+        }
+        .btn-contact {
+            background-color: #003366;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-contact:hover {
+            background-color: #002244;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 側邊欄 -->
+    <div class="sidebar">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4>選單</h4>
+            <button class="btn-close btn-close-white" id="closeSidebar"></button>
+        </div>
+        <div class="sidebar-links">
+            <div class="sidebar-dropdown">
+                <a href="../freediving/freediving-aida.html" class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#freedivingSubmenu">
+                    自由潛水
+                    <i class="fas fa-chevron-down ms-2"></i>
+                </a>
+                <div class="collapse" id="freedivingSubmenu">
+                    <a href="../freediving/freediving-aida1.html">AIDA 1</a>
+                    <a href="../freediving/freediving-aida2.html">AIDA 2</a>
+                    <a href="../freediving/freediving-aida3.html">AIDA 3</a>
+                    <a href="../freediving/freediving-experience.html">體驗潛水</a>
+                    <a href="../freediving/freediving-guidedive.html">導潛&訓練潛</a>
+                </div>
+            </div>
+            <div class="sidebar-dropdown">
+                <a href="#" class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#instructorSubmenu">
+                    教練
+                    <i class="fas fa-chevron-down ms-2"></i>
+                </a>
+                <div class="collapse" id="instructorSubmenu">
+                    <a href="hairen.html">海仁教練</a>
+                    <!-- <a href="bruce.html">BRUCE教練</a> -->
+                    <a href="weizhi.html">威智教練</a>
+                </div>
+            </div>
+            <a href="../environment.html">住宿環境</a>
+            <a href="../blog.html">BLOG</a>
+            <a href="../underwater-photo.html">水下攝影服務</a>
+            <!--<a href="../booking.html">預約課程</a>
+            <a href="../contact.html">聯絡我們</a>-->
+        </div>
+    </div>
+    <div class="sidebar-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <button class="btn btn-outline-secondary" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="../Oceaniangreen.html">
+                        <img src="../images/LOGO1.png" alt="Logo" class="logo">
+                    </a>
+                </div>
+                <div class="col-3 text-end">
+                    <a href="../bubble_clicker_game.html" class="btn btn-link p-0" title="Bubble Clicker Game">
+                        <i class="fas fa-gamepad fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main>
+        <!-- 第一區塊：教練標題和簡介 -->
+        <section class="instructor-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h1 class="instructor-title">威智教練</h1>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="instructor-intro">專業自由潛水教練，擁有豐富的教學經驗和熱情。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二區塊：輪播圖 -->
+        <section class="carousel-section">
+            <div id="instructorCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../images/weizhi-bg.jpg" class="d-block w-100" alt="威智教練">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/weizhi-2.jpg" class="d-block w-100" alt="威智教練">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/weizhi-3.jpg" class="d-block w-100" alt="威智教練">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#instructorCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#instructorCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 第三區塊：教練內容 -->
+        <section class="instructor-content">
+            <div class="container">
+                <div class="instructor-info">
+                    <h2>威智教練</h2>
+                    <p>專業自由潛水教練，擁有豐富的教學經驗和熱情。</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-certificate me-2"></i>證照：AIDA 教練</li>
+                        <li><i class="fas fa-graduation-cap me-2"></i>專長：自由潛水教學、導潛</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>教學地點：綠島</li>
+                    </ul>
+                    <a href="https://lin.ee/Rn5bsIi" class="btn-contact">聯絡教練</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四區塊：教練詳細資訊 -->
+        <section class="instructor-details">
+            <div class="container">
+                <h3 class="section-title">🌊 教學特色：</h3>
+                <p>專業的自由潛水教學<br>
+                一對一指導<br>
+                注重安全<br>
+                耐心細心的教學方式</p>
+
+                <h3 class="section-title">🌊 教學經驗：</h3>
+                <p>多年自由潛水教學經驗<br>
+                豐富的導潛經驗<br>
+                熟悉綠島各潛點<br>
+                擅長初學者教學</p>
+
+                <h3 class="section-title">🌊 個人特色：</h3>
+                <p>熱情開朗<br>
+                細心耐心<br>
+                注重安全<br>
+                專業負責</p>
+            </div>
+        </section>
+
+        <!-- 第五區塊：相關教練 -->
+        <section class="related-instructors">
+            <div class="container">
+                <h2 class="text-center mb-4">其他教練</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="hairen.html" class="text-decoration-none">
+                            <div class="instructor-card">
+                                <img src="../images/hairen-bg.jpg" alt="海仁教練">
+                                <div class="instructor-card-content">
+                                    <h4>海仁教練</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <a href="bruce.html" class="text-decoration-none">
+                            <div class="instructor-card">
+                                <img src="../images/bruce-bg.jpg" alt="BRUCE教練">
+                                <div class="instructor-card-content">
+                                    <h4>BRUCE教練</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../images/LOGO1.png" alt="Logo" class="footer-logo">
+                    <p>探索海洋的奧秘，體驗自由潛水的無限魅力。</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-links">
+                        <h5 class="mb-3">快速連結</h5>
+                        <a href="#about">關於我們</a>
+                        <a href="about.html">常見問題</a>
+                        <a href="#">隱私政策</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">聯絡資訊</h5>
+                    <p>海人企業社</p>
+                    <p>統一編號：85795661</p>
+                    <p>地址：台東縣綠島鄉公舘村柴口79-1號</p>
+                    <p>客服時間：9:00-21:00</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">Copyright 2025 © OCEANIAN in greenisland</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Line浮窗 -->
+    <a href="#" class="line-float" id="lineFloat">
+        <i class="fab fa-line"></i>
+    </a>
+    <div class="line-popup" id="linePopup">
+        <div class="line-popup-header">
+            <h3 class="line-popup-title">加入我們的LINE</h3>
+            <button class="line-popup-close" id="linePopupClose">&times;</button>
+        </div>
+        <div class="line-popup-content">
+            <iframe src="https://lin.ee/Rn5bsIi" class="line-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- 回到頂部按鈕 -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 回到頂部按鈕
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 顯示/隱藏回到頂部按鈕
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                document.getElementById('backToTop').style.display = 'flex';
+            } else {
+                document.getElementById('backToTop').style.display = 'none';
+            }
+
+            // 處理 header 的透明效果
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 側邊欄控制
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.add('active');
+            document.querySelector('.sidebar-overlay').classList.add('active');
+        });
+
+        document.getElementById('closeSidebar').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+        });
+
+        document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+        });
+    </script>
+</body>
+</html> 

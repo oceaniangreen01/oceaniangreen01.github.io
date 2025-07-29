@@ -1,0 +1,1329 @@
+/* 全局樣式 */
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 移除所有區塊的上下間距 */
+section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header 樣式 */
+.header {
+    padding: 0;
+    height: 70px;
+    background-color: rgba(2, 38, 60, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.header.transparent {
+    background-color: rgba(2, 38, 60, 0.5);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* 輪播圖樣式 */
+.carousel-item {
+    height: 70vh;
+    position: relative;
+}
+
+.carousel-item .img-container {
+    height: 100%;
+    padding-bottom: 0;
+}
+
+.carousel-item .img-container img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 移除輪播圖懸停效果 */
+.carousel-item:hover {
+    filter: none;
+    transform: none;
+}
+
+/* 輪播圖文字樣式 */
+.carousel-caption {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+    background: none;
+    border-radius: 5px;
+}
+
+.carousel-caption h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 不同位置的標題樣式 */
+.carousel-caption.top {
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.carousel-caption.left-top {
+    top: 15%;
+    left: 10%;
+}
+
+.carousel-caption.bottom {
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.carousel-caption.left-bottom {
+    bottom: 15%;
+    left: 10%;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+
+    .carousel-caption.top,
+    .carousel-caption.bottom {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .carousel-caption.left-top,
+    .carousel-caption.left-bottom {
+        left: 5%;
+    }
+}
+
+/* 導覽區塊樣式 */
+.navigation-section {
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.navigation-section .row {
+    margin: 0;
+    height: 250px; /* 修改為固定高度 250px */
+}
+
+.navigation-section .col-md-4 {
+    padding: 0;
+    height: 100%;
+}
+
+/* 導覽卡片樣式 */
+.nav-card {
+    position: relative;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* 卡片內容樣式 */
+.nav-card .card-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 1.5rem;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease;
+}
+
+.nav-card .card-content h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
+    transition: all 0.5s ease;
+}
+
+.nav-card .card-content p {
+    font-size: 1rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+    margin: 0;
+}
+
+/* 滑鼠懸停效果 */
+.nav-card:hover {
+    transform: scale(1.05);
+}
+
+.nav-card:hover .card-content {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.nav-card:hover .card-content h3 {
+    transform: translateY(-5px);
+}
+
+.nav-card:hover .card-content p {
+    transform: translateY(-3px);
+}
+
+/* 背景圖片模糊效果 */
+.nav-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.nav-card:hover::before {
+    filter: blur(3px);
+    transform: scale(1.1);
+}
+
+/* 自由潛水卡片背景 */
+.nav-card.freediving::before {
+    background-image: url('freediving.jpg');
+}
+
+/* 教練卡片背景 */
+.nav-card.instructor::before {
+    background-image: url('instructor.jpg');
+}
+
+/* 住宿卡片背景 */
+.nav-card.environment::before {
+    background-image: url('accommodation.jpg');
+}
+
+/* 優惠活動樣式 */
+.promotion-section {
+    padding: 0;
+    background-image: url('images/promotion-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 900px;
+}
+
+.promotion-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.promotion-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.promotion-text {
+    color: white;
+    max-width: 600px;
+}
+
+.promotion-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.promotion-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 品牌簡介樣式 */
+.about-section {
+    padding: 0;
+    background-color: #ffffff;
+    position: relative;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-top {
+    height: 100px;
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333333;
+    padding: 0 5%;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333333;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    color: #666666;
+}
+
+/* 預約流程樣式 */
+.booking-section {
+    padding: 0;
+    background-image: url('images/booking-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 500px;
+}
+
+.booking-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.booking-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 5%;
+}
+
+.booking-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.booking-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.booking-btn {
+    background-color: #0d6efd;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.booking-btn:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Blog 樣式 */
+.blog-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+#blogCarousel {
+    position: relative;
+    padding: 0 50px;
+}
+
+#blogCarousel .carousel-control-prev,
+#blogCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(2, 38, 60, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+#blogCarousel .carousel-control-prev {
+    left: 0;
+}
+
+#blogCarousel .carousel-control-next {
+    right: 0;
+}
+
+#blogCarousel .carousel-control-prev:hover,
+#blogCarousel .carousel-control-next:hover {
+    opacity: 1;
+}
+
+.blog-card {
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.blog-card img {
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.blog-card:hover img {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+/* Footer 樣式 */
+.footer {
+    padding: 40px 0;
+    background-color: rgba(2, 38, 60, 0.9);
+    color: #fff;
+}
+
+.footer-logo {
+    width: 132px;
+    height: 132px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+/* Line浮窗樣式 */
+.line-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #06C755;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.line-float:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.line-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    width: 320px;
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.line-popup.active {
+    display: block;
+}
+
+.line-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.line-popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.line-popup-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.line-popup-content {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.line-share-container {
+    margin: 15px 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 回到頂部按鈕樣式 */
+.back-to-top {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: auto !important;
+    background-color: #0d6efd;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 側邊欄樣式 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background-color: #343a40;
+    z-index: 1001;
+    transition: left 0.3s;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+.sidebar-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 圖片容器基本樣式 */
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 比例 */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+/* 滑鼠懸停效果 */
+.img-container:hover img {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+/* 卡片圖片樣式 */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+/* 品牌簡介圖片樣式 */
+.about-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.about-section img:hover {
+    transform: scale(1.05);
+    filter: blur(2px);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 50vh;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+    
+    .navigation-section .row {
+        height: 200px;
+    }
+    
+    .navigation-section .col-md-4 {
+        height: 200px;
+        margin-bottom: 0;
+    }
+    
+    .nav-card .card-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-card .card-content p {
+        font-size: 0.9rem;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+
+    .promotion-section,
+    .about-section,
+    .booking-section {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .promotion-text h2,
+    .about-content h2,
+    .booking-content h2 {
+        font-size: 2rem;
+    }
+
+    .promotion-text p,
+    .about-content p,
+    .booking-content p {
+        font-size: 1rem;
+    }
+
+    .about-section {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .about-top {
+        height: 60px;
+    }
+
+    .about-content {
+        height: auto;
+        padding: 40px 5%;
+    }
+}
+
+/* Banner Hover Effects */
+.banner.has-hover {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.banner.has-hover:hover {
+    transform: scale(1.05);
+}
+
+.banner.has-hover .banner-bg {
+    transition: transform 0.3s ease;
+}
+
+.banner.has-hover:hover .banner-bg {
+    transform: scale(1.1);
+}
+
+/* Lightbox Styles */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 3px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+/* Banner Grid Styles */
+.banner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.banner-grid .col {
+    padding: 15px;
+}
+
+.banner-grid .banner {
+    height: 100%;
+    min-height: 300px;
+}
+
+.banner-grid .banner .banner-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .banner-grid .col {
+        width: 100%;
+    }
+    
+    .lightbox-content {
+        max-width: 95%;
+    }
+}
+
+/* Banner Text Styles */
+#banner-1976952224 .banner-layers {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: -200px; /* 向上移動 */
+}
+
+#banner-1976952224 .text-box {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+    transform: translateY(-70%); /* 向上移動 */
+}
+
+#banner-1976952224 .text-box-content {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#banner-1976952224 .text-box-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+#banner-1976952224 .text-box-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+#banner-1976952224 .is-divider {
+    margin: 1.5rem auto;
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    #banner-1976952224 .text-box {
+        transform: translateY(-10%); /* 在手機版上減少上移的距離 */
+    }
+    
+    #banner-1976952224 .text-box-content h1 {
+        font-size: 2rem;
+    }
+    
+    #banner-1976952224 .text-box-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Overlay Styles */
+.banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Animation Effects */
+.banner.has-hover {
+    transition: all 0.3s ease-in-out;
+}
+
+.banner.has-hover:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading Animation */
+.banner-bg.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* 移除標題區塊的懸浮效果 */
+#banner-1976952224.banner.has-hover {
+    transform: none;
+    cursor: default;
+}
+
+#banner-1976952224.banner.has-hover:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#banner-1976952224.banner.has-hover .banner-bg {
+    transform: none;
+}
+
+#banner-1976952224.banner.has-hover:hover .banner-bg {
+    transform: none;
+}
+
+/* 調整 header 與內容的間距 */
+#main {
+    padding-top: 0; /* 移除之前的 padding-top */
+}
+
+#banner-1976952224 {
+    padding-top: 550px;
+    background-color: transparent;
+}
+
+#banner-1976952224 .bg.bg-loaded {
+    background-image: url('images/underwater-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Gallery Section Styles */
+.gallery-section {
+    background-color: #0c0b0b;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.gallery-item.large {
+    height: 800px;
+}
+
+.gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+/* Info Box Styles */
+.gallery-item.info-box {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.info-content {
+    text-align: center;
+    color: #fff;
+}
+
+.info-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.info-content p {
+    margin-bottom: 1.5rem;
+}
+
+.btn-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 300px;
+    }
+    
+    .gallery-item.large {
+        height: 400px;
+    }
+    
+    .info-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .info-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Banner styles */
+.banner-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    margin-top: -70px; /* 抵消 header 的高度 */
+}
+
+.banner-section .banner-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-section .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.banner-section .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.banner-section .banner-layers {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-section .text-box {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.banner-section .text-box-content {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-section .text-box-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.banner-section .text-box-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.banner-section .is-divider {
+    margin: 1.5rem auto;
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .banner-section {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .banner-section .text-box-content h1 {
+        font-size: 2rem;
+    }
+    
+    .banner-section .text-box-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Environment Page Styles */
+.carousel-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+}
+
+.carousel-section .carousel {
+    height: 100%;
+}
+
+.carousel-section .carousel-inner,
+.carousel-section .carousel-item {
+    height: 100%;
+}
+
+.carousel-section .carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.carousel-caption h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* 不同位置的標題樣式 */
+.carousel-caption.top {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel-caption.left-top {
+    top: 20%;
+    left: 20%;
+}
+
+.carousel-caption.bottom {
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.carousel-caption.left-bottom {
+    bottom: 20%;
+    left: 20%;
+}
+
+/* 價格區塊樣式 */
+.pricing-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+.pricing-box {
+    width: 100%;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+.pricing-box .btn-primary {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 40px 0;
+    }
+}
+
+/* Banner styles for underwater photo page */
+#banner-1976952224.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    margin-top: -70px;
+}
+
+#banner-1976952224 .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#banner-1976952224 .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#banner-1976952224 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+#banner-1976952224 .banner-layers {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner-1976952224 .text-box {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+#banner-1976952224 .text-box-content {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#banner-1976952224 .text-box-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+#banner-1976952224 .text-box-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+#banner-1976952224 .is-divider {
+    margin: 1.5rem auto;
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+} 

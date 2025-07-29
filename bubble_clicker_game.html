@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超廢泡泡養成遊戲</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .game-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .bubble-container {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .bubble {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.2), transparent);
+            border: 3px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+
+        .bubble:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .click-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+            pointer-events: none;
+            opacity: 0;
+            animation: popup 1s ease-out;
+        }
+
+        @keyframes popup {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5) translateY(-30px); }
+        }
+
+        .upgrades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .upgrade {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .upgrade:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .upgrade h3 {
+            margin: 0 0 10px 0;
+            color: #FFD700;
+        }
+
+        .upgrade p {
+            margin: 5px 0;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .upgrade-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .upgrade-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+        }
+
+        .upgrade-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .achievements {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .achievement {
+            display: inline-block;
+            background: rgba(255,215,0,0.3);
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(255,215,0,0.5);
+        }
+
+        .achievement.unlocked {
+            background: rgba(255,215,0,0.8);
+            color: #333;
+        }
+
+        .prestige-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,0,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,0,255,0.3);
+        }
+
+        .prestige-btn {
+            background: linear-gradient(45deg, #FF00FF, #8A2BE2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .prestige-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,0,255,0.4);
+        }
+
+        .prestige-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>超廢泡泡養成遊戲</h1>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="coins">0</div>
+                <div class="stat-label">金幣</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="clicks">0</div>
+                <div class="stat-label">總點擊數</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="cps">1</div>
+                <div class="stat-label">每點金幣</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="prestige">0</div>
+                <div class="stat-label">重生次數</div>
+            </div>
+        </div>
+
+        <div class="bubble-container">
+            <div class="bubble" id="bubble"></div>
+        </div>
+
+        <div class="upgrades">
+            <div class="upgrade">
+                <h3>💪 強化點擊</h3>
+                <p>每次點擊 +1 金幣</p>
+                <p>等級: <span id="click-level">0</span></p>
+                <button class="upgrade-btn" id="click-upgrade">購買 (10 金幣)</button>
+            </div>
+            
+            <div class="upgrade">
+                <h3>🤖 自動點擊器</h3>
+                <p>每秒自動獲得金幣</p>
+                <p>等級: <span id="auto-level">0</span></p>
+                <button class="upgrade-btn" id="auto-upgrade">購買 (50 金幣)</button>
+            </div>
+            
+            <div class="upgrade">
+                <h3>🎯 暴擊機率</h3>
+                <p>有機率獲得雙倍金幣</p>
+                <p>等級: <span id="crit-level">0</span></p>
+                <button class="upgrade-btn" id="crit-upgrade">購買 (100 金幣)</button>
+            </div>
+            
+            <div class="upgrade">
+                <h3>🌟 幸運加成</h3>
+                <p>所有金幣獲得 +10%</p>
+                <p>等級: <span id="luck-level">0</span></p>
+                <button class="upgrade-btn" id="luck-upgrade">購買 (200 金幣)</button>
+            </div>
+        </div>
+
+        <div class="achievements">
+            <h3>🏆 成就系統</h3>
+            <div class="achievement" id="ach-1">點擊新手 (10次)</div>
+            <div class="achievement" id="ach-2">點擊達人 (100次)</div>
+            <div class="achievement" id="ach-3">點擊狂人 (1000次)</div>
+            <div class="achievement" id="ach-4">金幣收集者 (100金幣)</div>
+            <div class="achievement" id="ach-5">金幣大亨 (1000金幣)</div>
+            <div class="achievement" id="ach-6">第一次升級</div>
+        </div>
+
+        <div class="prestige-section">
+            <h3>🌟 重生系統</h3>
+            <p>重生可以重置所有進度，但獲得永久加成！</p>
+            <p>重生獎勵: 所有金幣獲得 +<span id="prestige-bonus">0</span>%</p>
+            <button class="prestige-btn" id="prestige-btn" disabled>重生 (需要 10000 金幣)</button>
+        </div>
+    </div>
+
+    <script>
+        // 遊戲狀態
+        let gameState = {
+            coins: 0,
+            totalClicks: 0,
+            clickPower: 1,
+            autoClickers: 0,
+            critChance: 0,
+            luckBonus: 0,
+            prestigeLevel: 0,
+            upgrades: {
+                click: { level: 0, cost: 10 },
+                auto: { level: 0, cost: 50 },
+                crit: { level: 0, cost: 100 },
+                luck: { level: 0, cost: 200 }
+            },
+            achievements: new Set()
+        };
+
+        // DOM 元素
+        const bubble = document.getElementById('bubble');
+        const coinsDisplay = document.getElementById('coins');
+        const clicksDisplay = document.getElementById('clicks');
+        const cpsDisplay = document.getElementById('cps');
+        const prestigeDisplay = document.getElementById('prestige');
+
+        // 點擊泡泡
+        bubble.addEventListener('click', function(e) {
+            let coinsGained = gameState.clickPower * (1 + gameState.luckBonus / 100);
+            
+            // 暴擊檢查
+            if (Math.random() < gameState.critChance / 100) {
+                coinsGained *= 2;
+                showClickEffect('💥 ' + Math.floor(coinsGained), e.target);
+            } else {
+                showClickEffect('+' + Math.floor(coinsGained), e.target);
+            }
+            
+            gameState.coins += coinsGained;
+            gameState.totalClicks++;
+            
+            // 泡泡大小變化
+            const scale = 1 + (gameState.totalClicks % 10) * 0.05;
+            bubble.style.transform = `scale(${scale})`;
+            
+            updateDisplay();
+            checkAchievements();
+        });
+
+        // 顯示點擊效果
+        function showClickEffect(text, element) {
+            const effect = document.createElement('div');
+            effect.className = 'click-effect';
+            effect.textContent = text;
+            element.parentNode.appendChild(effect);
+            
+            setTimeout(() => {
+                effect.remove();
+            }, 1000);
+        }
+
+        // 升級按鈕
+        document.getElementById('click-upgrade').addEventListener('click', () => {
+            if (gameState.coins >= gameState.upgrades.click.cost) {
+                gameState.coins -= gameState.upgrades.click.cost;
+                gameState.upgrades.click.level++;
+                gameState.clickPower++;
+                gameState.upgrades.click.cost = Math.floor(gameState.upgrades.click.cost * 1.5);
+                updateDisplay();
+                checkAchievements();
+            }
+        });
+
+        document.getElementById('auto-upgrade').addEventListener('click', () => {
+            if (gameState.coins >= gameState.upgrades.auto.cost) {
+                gameState.coins -= gameState.upgrades.auto.cost;
+                gameState.upgrades.auto.level++;
+                gameState.autoClickers++;
+                gameState.upgrades.auto.cost = Math.floor(gameState.upgrades.auto.cost * 1.5);
+                updateDisplay();
+                checkAchievements();
+            }
+        });
+
+        document.getElementById('crit-upgrade').addEventListener('click', () => {
+            if (gameState.coins >= gameState.upgrades.crit.cost) {
+                gameState.coins -= gameState.upgrades.crit.cost;
+                gameState.upgrades.crit.level++;
+                gameState.critChance += 5;
+                gameState.upgrades.crit.cost = Math.floor(gameState.upgrades.crit.cost * 1.5);
+                updateDisplay();
+                checkAchievements();
+            }
+        });
+
+        document.getElementById('luck-upgrade').addEventListener('click', () => {
+            if (gameState.coins >= gameState.upgrades.luck.cost) {
+                gameState.coins -= gameState.upgrades.luck.cost;
+                gameState.upgrades.luck.level++;
+                gameState.luckBonus += 10;
+                gameState.upgrades.luck.cost = Math.floor(gameState.upgrades.luck.cost * 1.5);
+                updateDisplay();
+                checkAchievements();
+            }
+        });
+
+        // 重生按鈕
+        document.getElementById('prestige-btn').addEventListener('click', () => {
+            if (gameState.coins >= 10000) {
+                gameState.prestigeLevel++;
+                gameState.coins = 0;
+                gameState.totalClicks = 0;
+                gameState.clickPower = 1;
+                gameState.autoClickers = 0;
+                gameState.critChance = 0;
+                gameState.luckBonus = gameState.prestigeLevel * 50; // 重生獎勵
+                gameState.upgrades = {
+                    click: { level: 0, cost: 10 },
+                    auto: { level: 0, cost: 50 },
+                    crit: { level: 0, cost: 100 },
+                    luck: { level: 0, cost: 200 }
+                };
+                updateDisplay();
+            }
+        });
+
+        // 自動點擊器
+        setInterval(() => {
+            if (gameState.autoClickers > 0) {
+                let autoCoins = gameState.autoClickers * (1 + gameState.luckBonus / 100);
+                gameState.coins += autoCoins;
+                updateDisplay();
+            }
+        }, 1000);
+
+        // 更新顯示
+        function updateDisplay() {
+            coinsDisplay.textContent = Math.floor(gameState.coins);
+            clicksDisplay.textContent = gameState.totalClicks;
+            cpsDisplay.textContent = gameState.clickPower;
+            prestigeDisplay.textContent = gameState.prestigeLevel;
+            
+            // 升級按鈕
+            document.getElementById('click-level').textContent = gameState.upgrades.click.level;
+            document.getElementById('auto-level').textContent = gameState.upgrades.auto.level;
+            document.getElementById('crit-level').textContent = gameState.upgrades.crit.level;
+            document.getElementById('luck-level').textContent = gameState.upgrades.luck.level;
+            
+            document.getElementById('click-upgrade').textContent = `購買 (${gameState.upgrades.click.cost} 金幣)`;
+            document.getElementById('auto-upgrade').textContent = `購買 (${gameState.upgrades.auto.cost} 金幣)`;
+            document.getElementById('crit-upgrade').textContent = `購買 (${gameState.upgrades.crit.cost} 金幣)`;
+            document.getElementById('luck-upgrade').textContent = `購買 (${gameState.upgrades.luck.cost} 金幣)`;
+            
+            // 按鈕狀態
+            document.getElementById('click-upgrade').disabled = gameState.coins < gameState.upgrades.click.cost;
+            document.getElementById('auto-upgrade').disabled = gameState.coins < gameState.upgrades.auto.cost;
+            document.getElementById('crit-upgrade').disabled = gameState.coins < gameState.upgrades.crit.cost;
+            document.getElementById('luck-upgrade').disabled = gameState.coins < gameState.upgrades.luck.cost;
+            
+            // 重生按鈕
+            document.getElementById('prestige-btn').disabled = gameState.coins < 10000;
+            document.getElementById('prestige-bonus').textContent = gameState.prestigeLevel * 50;
+        }
+
+        // 成就檢查
+        function checkAchievements() {
+            const achievements = [
+                { id: 'ach-1', condition: gameState.totalClicks >= 10 },
+                { id: 'ach-2', condition: gameState.totalClicks >= 100 },
+                { id: 'ach-3', condition: gameState.totalClicks >= 1000 },
+                { id: 'ach-4', condition: gameState.coins >= 100 },
+                { id: 'ach-5', condition: gameState.coins >= 1000 },
+                { id: 'ach-6', condition: Object.values(gameState.upgrades).some(u => u.level > 0) }
+            ];
+            
+            achievements.forEach(ach => {
+                if (ach.condition && !gameState.achievements.has(ach.id)) {
+                    gameState.achievements.add(ach.id);
+                    document.getElementById(ach.id).classList.add('unlocked');
+                    showClickEffect('🏆 成就解鎖!', bubble);
+                }
+            });
+        }
+
+        // 初始化
+        updateDisplay();
+    </script>
+</body>
+</html>

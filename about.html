@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 - OCEANIAN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 側邊欄 -->
+    <div class="sidebar">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4>選單</h4>
+            <button class="btn-close btn-close-white" id="closeSidebar"></button>
+        </div>
+        <div class="sidebar-links">
+            <div class="sidebar-dropdown">
+                <a href="freediving/freediving-aida.html" class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#freedivingSubmenu">
+                    自由潛水
+                    <i class="fas fa-chevron-down ms-2"></i>
+                </a>
+                <div class="collapse" id="freedivingSubmenu">
+                    <a href="freediving/freediving-aida1.html">AIDA 1</a>
+                    <a href="freediving/freediving-aida2.html">AIDA 2</a>
+                    <a href="freediving/freediving-aida3.html">AIDA 3</a>
+                    <a href="freediving/freediving-experience.html">體驗潛水</a>
+                    <a href="freediving/freediving-guidedive.html">導潛&訓練潛</a>
+                </div>
+            </div>
+            <div class="sidebar-dropdown">
+                <a href="#" class="dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#instructorSubmenu">
+                    教練
+                    <i class="fas fa-chevron-down ms-2"></i>
+                </a>
+                <div class="collapse" id="instructorSubmenu">
+                    <a href="instructor/hairen.html">海仁教練</a>
+                    <!-- <a href="instructor/bruce.html">BRUCE教練</a> -->
+                    <a href="instructor/weizhi.html">威智教練</a>
+                </div>
+            </div>
+            <a href="environment.html">住宿環境</a>
+            <a href="blog.html">BLOG</a>
+            <a href="underwater-photo.html">水下攝影服務</a>
+            <!--<a href="booking.html">預約課程</a>-->
+            <!--<a href="contact.html">聯絡我們</a>-->
+        </div>
+    </div>
+    <div class="sidebar-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <button class="btn btn-outline-secondary" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="Oceaniangreen.html">
+                        <img src="images/LOGO1.png" alt="Logo" class="logo">
+                    </a>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要內容 -->
+    <main class="container my-5" style="padding-top: 100px;">
+        <div class="mb-5 text-center">
+            <h1 class="fw-bold">常見問題</h1>
+            <p class="text-muted">FAQ / 關於我們</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <ul class="nav nav-tabs justify-content-center mb-4" id="faqTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-freediving" data-bs-toggle="tab" data-bs-target="#freediving" type="button" role="tab" aria-controls="freediving" aria-selected="true">自由潛水</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-accommodation" data-bs-toggle="tab" data-bs-target="#accommodation" type="button" role="tab" aria-controls="accommodation" aria-selected="false">住宿</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-shopping" data-bs-toggle="tab" data-bs-target="#shopping" type="button" role="tab" aria-controls="shopping" aria-selected="false">購物</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="faqTabContent">
+                    <!-- 自由潛水 -->
+                    <div class="tab-pane fade show active" id="freediving" role="tabpanel" aria-labelledby="tab-freediving">
+                        <div class="accordion" id="accordionFreediving">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="fd-heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fd-collapse1" aria-expanded="true" aria-controls="fd-collapse1">
+                                        預約流程
+                                    </button>
+                                </h2>
+                                <div id="fd-collapse1" class="accordion-collapse collapse show" aria-labelledby="fd-heading1" data-bs-parent="#accordionFreediving">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>加入官方Line詢問：@oceanian</li>
+                                            <li>確認報名後請於3日內匯款訂金，若於保留時間內未收到匯款訂金則自動取消預約，不另行通知。</li>
+                                            <li>匯款完請主動告知帳號後五碼以便確認。</li>
+                                            <li>我們收到訂金後將為您保留預定，餘款於開課前30天內結清。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="fd-heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fd-collapse2" aria-expanded="false" aria-controls="fd-collapse2">
+                                        延期或取消
+                                    </button>
+                                </h2>
+                                <div id="fd-collapse2" class="accordion-collapse collapse" aria-labelledby="fd-heading2" data-bs-parent="#accordionFreediving">
+                                    <div class="accordion-body">
+                                        <strong>自由潛水課程</strong>
+                                        <ul>
+                                            <li>開課30天前付清餘款。</li>
+                                            <li>開課前30天接受全額退費。</li>
+                                            <li>開課前30天內恕不退款。</li>
+                                            <li>可轉讓名額或保留訂單延期一次</li>
+                                            <li>如因天氣影響而取消課程，全額退費。</li>
+                                        </ul>
+                                        <strong>自由潛水體驗、導潛/訓練潛/水攝</strong>
+                                        <ul>
+                                            <li>請洽官方Line詢問細節。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="fd-heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fd-collapse3" aria-expanded="false" aria-controls="fd-collapse3">
+                                        課程介紹
+                                    </button>
+                                </h2>
+                                <div id="fd-collapse3" class="accordion-collapse collapse" aria-labelledby="fd-heading3" data-bs-parent="#accordionFreediving">
+                                    <div class="accordion-body">
+                                        <p>我們提供Aida1、Aida2、Aida3、體驗課程、導潛、訓練潛、水下攝影等。</p>
+                                        <p>詳細介紹請看 <a href="https://www.oceaniangreenisland.com/freediving-aida/" target="_blank">https://www.oceaniangreenisland.com/freediving-aida/</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 住宿 -->
+                    <div class="tab-pane fade" id="accommodation" role="tabpanel" aria-labelledby="tab-accommodation">
+                        <div class="accordion" id="accordionAccommodation">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="ac-heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ac-collapse1" aria-expanded="true" aria-controls="ac-collapse1">
+                                        訂房流程
+                                    </button>
+                                </h2>
+                                <div id="ac-collapse1" class="accordion-collapse collapse show" aria-labelledby="ac-heading1" data-bs-parent="#accordionAccommodation">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>加入官方Line詢問：@oceanian</li>
+                                            <li>確認訂房後請於訂房後3日內匯款訂金，若於保留時間內未收到匯款訂金則自動取消預約，不另行通知。</li>
+                                            <li>匯款完請主動告知帳號後五碼以便確認。</li>
+                                            <li>我們收到訂金後將為您保留預定，餘款於入住當天結清。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="ac-heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ac-collapse2" aria-expanded="false" aria-controls="ac-collapse2">
+                                        訂房須知
+                                    </button>
+                                </h2>
+                                <div id="ac-collapse2" class="accordion-collapse collapse" aria-labelledby="ac-heading2" data-bs-parent="#accordionAccommodation">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>入住15：00｜退房11：00。</li>
+                                            <li>房內禁止飲食、吸菸、嚼檳榔。</li>
+                                            <li>木棧板上請勿奔跑，腳步請放輕。</li>
+                                            <li>濕身請勿進入室內空間。</li>
+                                            <li>節約用電，隨手關燈、關冷氣、關門。</li>
+                                            <li>背包房內空間有限，行李放置床位下方。</li>
+                                            <li>退房時請將床包組拆下置於床上即可。</li>
+                                            <li>垃圾/回收請做好分類。</li>
+                                            <li>公共空間/廁所請勿滯留個人物品，貴重物品請隨身攜帶並妥善保管，如有遺失恕不負責。</li>
+                                            <li>公共空間22：00後請降低音量，勿大聲喧嘩, 以維護社區安寧及其他旅客權益。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="ac-heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ac-collapse3" aria-expanded="false" aria-controls="ac-collapse3">
+                                        交通資訊
+                                    </button>
+                                </h2>
+                                <div id="ac-collapse3" class="accordion-collapse collapse" aria-labelledby="ac-heading3" data-bs-parent="#accordionAccommodation">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>代訂船票｜台東富岡漁港船班時間前30分鐘任一櫃檯並備妥身分證至售票處取票。［訂購單程票需付款$560］</li>
+                                            <li>代訂交通工具：
+                                                <ul>
+                                                    <li>下船後依照指示圖前往領取車輛，領取完後前往民宿辦理入住。</li>
+                                                    <li>告知住宿名稱並填寫資料「Oceanian/海人背包客棧」
+                                                        <ul>
+                                                            <li>一般機車｜備妥「機車駕照」。google 搜尋「好聲音KTV」的對面。</li>
+                                                            <li>電動自行車&amp;電動機車｜備妥「護照」。google搜尋「新研電動車租賃」，車行會教學騎乘注意事項。</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>船班查詢 <a href="http://www.ezboat.com.tw/" target="_blank">http://www.ezboat.com.tw/</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="ac-heading4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ac-collapse4" aria-expanded="false" aria-controls="ac-collapse4">
+                                        代訂服務
+                                    </button>
+                                </h2>
+                                <div id="ac-collapse4" class="accordion-collapse collapse" aria-labelledby="ac-heading4" data-bs-parent="#accordionAccommodation">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>機車：加滿油交車，24小時制一天 $450，超時緩衝兩小時，之後以一小時 $50 超時費計算，超時費用牽車時車行會收。</li>
+                                            <li>船票：來回船票原價為 $1100（原價1120）。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="ac-heading5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ac-collapse5" aria-expanded="false" aria-controls="ac-collapse5">
+                                        延期或取消
+                                    </button>
+                                </h2>
+                                <div id="ac-collapse5" class="accordion-collapse collapse" aria-labelledby="ac-heading5" data-bs-parent="#accordionAccommodation">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>訂金收取依照觀光局頒布《定型化契約》規定，並依法令規定比率進行。</li>
+                                            <li>取消訂房之扣款如下：</li>
+                                            <li>住宿日當日取消訂房扣房價預付訂金金額100%</li>
+                                            <li>住宿日前1日取消訂房扣房價預付訂金金額80%</li>
+                                            <li>住宿日前2-3日取消訂房扣房價預付訂金金額70%</li>
+                                            <li>住宿日前4-6日取消訂房扣房價預付訂金金額60%</li>
+                                            <li>住宿日前7-9日取消訂房扣房價預付訂金金額50%</li>
+                                            <li>住宿日前10-13日取消訂房扣房價預付訂金金額30%</li>
+                                            <li>住宿日前14日前(含14日)取消訂房扣房價預付訂金金額0%。</li>
+                                            <li>(或半年內可延期以一次為限)</li>
+                                            <li>如遇天災(如地震、颱風)導致交通中斷無法前來，經主管單位發佈之訊息，可退還訂金100%。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 購物 -->
+                    <div class="tab-pane fade" id="shopping" role="tabpanel" aria-labelledby="tab-shopping">
+                        <div class="accordion" id="accordionShopping">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sh-heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sh-collapse1" aria-expanded="true" aria-controls="sh-collapse1">
+                                        注意事項
+                                    </button>
+                                </h2>
+                                <div id="sh-collapse1" class="accordion-collapse collapse show" aria-labelledby="sh-heading1" data-bs-parent="#accordionShopping">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>所有商品皆實品拍攝。</li>
+                                            <li>網頁商品會因為使用不同的品牌螢幕以及解析度不同, 造成圖片顏色呈現略有不同, 請以實品顏色為準。</li>
+                                            <li>我們保留接受訂單成立與否之權利，若因交易條件有誤、商品無庫存、或有其他無法接受訂單之情形，將以E-mail通知您訂單不成立/取消。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sh-heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sh-collapse2" aria-expanded="false" aria-controls="sh-collapse2">
+                                        付款
+                                    </button>
+                                </h2>
+                                <div id="sh-collapse2" class="accordion-collapse collapse" aria-labelledby="sh-heading2" data-bs-parent="#accordionShopping">
+                                    <div class="accordion-body">
+                                        <p>我們提供以下2種付款方式：</p>
+                                        <ol>
+                                            <li>ATM轉帳</li>
+                                            <li>超商代碼（繳費教學：<a href="https://www.ecpay.com.tw/service/pay_way_cvpay" target="_blank">https://www.ecpay.com.tw/service/pay_way_cvpay</a>）</li>
+                                        </ol>
+                                        <p>以上皆有付款時限，請於24小時內匯款完成，超過時間匯款帳號會失效，我們也會直接取消訂單，請直接重新下單唷。</p>
+                                        <ul>
+                                            <li>目前尚未開通貨到付款以及信用卡服務。</li>
+                                            <li>付款完成後，您會收到我們寄出的電子郵件，會員中心的訂單狀態會顯示為處理中。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sh-heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sh-collapse3" aria-expanded="false" aria-controls="sh-collapse3">
+                                        下單後沒有顯示匯款帳號
+                                    </button>
+                                </h2>
+                                <div id="sh-collapse3" class="accordion-collapse collapse" aria-labelledby="sh-heading3" data-bs-parent="#accordionShopping">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>可能為發卡銀行系統忙碌或是網路資料壅塞，導致等待時間過長，造成系統確認失敗。</li>
+                                        </ul>
+                                        <p>如何解決：</p>
+                                        <ul>
+                                            <li>請至會員中心&gt;訂單&gt;付款。</li>
+                                            <li>請至會員中心&gt;訂單&gt;查看。</li>
+                                            <li>若依然沒有看到付款帳號，請直接重新下單。其他問題請洽官方LINE。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sh-heading4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sh-collapse4" aria-expanded="false" aria-controls="sh-collapse4">
+                                        配送
+                                    </button>
+                                </h2>
+                                <div id="sh-collapse4" class="accordion-collapse collapse" aria-labelledby="sh-heading4" data-bs-parent="#accordionShopping">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>若商品為現貨，出貨時間為付款完成後三日內出貨(例假日/國定假日不出貨)，因從離島(綠島)寄出，可能因天氣因素導致物流延誤。</li>
+                                            <li>若因個人因素如：地址錯誤/無人收件/投遞不成功等導致退件需再重寄，我們將向買家求償物流損失之費用$80。</li>
+                                            <li>目前僅提供郵局寄送服務，由於離島超商寄送時間十分漫長，故暫不開放。</li>
+                                            <li>商品寄出後，您會收到我們寄出的電子郵件，會員中心的訂單狀態會顯示為完成。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sh-heading5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sh-collapse5" aria-expanded="false" aria-controls="sh-collapse5">
+                                        退換貨
+                                    </button>
+                                </h2>
+                                <div id="sh-collapse5" class="accordion-collapse collapse" aria-labelledby="sh-heading5" data-bs-parent="#accordionShopping">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>請於到貨七日鑑賞期(非試用期)，自取貨隔日起算7日，收到商品後請立即拆封確認品項、尺寸、顏色是否正確，若超過此期間視同驗收完成不得退換貨。</li>
+                                            <li>請確保退貨商品之包裝完整、標籤及吊牌未剪、配件完整並妥善包裝寄回，若商品因消費者個人不當使用拆卸產生人為因素造成故障、損毀、磨損、擦傷、刮傷、髒污，或是附配件不齊者，恕不接受退貨。</li>
+                                            <li>退回商品必須是全新未使用、未修改、未下水之狀態，否則我們有權拒絕接受退貨。</li>
+                                            <li>每張訂單限退貨或換貨一次，如有退換貨需求，請務必先與我們確認後，再由您寄出商品。</li>
+                                            <li>換貨商品屬於新訂單交易之成立，一律由買家負擔來回運費。</li>
+                                            <li>若退貨造成未達優惠組合之門檻，則優惠組合之價格以原價計算。</li>
+                                            <li>欲申請退貨，請加入官方LINE聯繫，自行寄回商品待我們收到商品確認無誤後，款項將會退入您指定的銀行帳戶中。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="images/LOGO1.png" alt="Logo" class="footer-logo">
+                    <p>探索海洋的奧秘，體驗自由潛水的無限魅力。</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-links">
+                        <h5 class="mb-3">快速連結</h5>
+                        <a href="about.html">關於我們</a>
+                        <a href="about.html">常見問題</a>
+                        <a href="#">隱私政策</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">聯絡資訊</h5>
+                    <p>海人企業社</p>
+                    <p>統一編號：85795661</p>
+                    <p>地址：台東縣綠島鄉公舘村柴口79-1號</p>
+                    <p>客服時間：9:00-21:00</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">Copyright 2025 © OCEANIAN in greenisland</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Line浮窗 -->
+    <a href="#" class="line-float" id="lineFloat">
+        <i class="fab fa-line"></i>
+    </a>
+    <div class="line-popup" id="linePopup">
+        <div class="line-popup-header">
+            <h3 class="line-popup-title">加入我們的LINE</h3>
+            <button class="line-popup-close" id="linePopupClose">&times;</button>
+        </div>
+        <div class="line-popup-content">
+            <iframe src="https://lin.ee/Rn5bsIi" class="line-iframe"></iframe>
+        </div>
+    </div>
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                document.getElementById('backToTop').style.display = 'flex';
+            } else {
+                document.getElementById('backToTop').style.display = 'none';
+            }
+        });
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.add('active');
+            document.querySelector('.sidebar-overlay').classList.add('active');
+        });
+        document.getElementById('closeSidebar').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+        });
+        document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+        });
+        // Line浮窗控制
+        const lineFloat = document.getElementById('lineFloat');
+        const linePopup = document.getElementById('linePopup');
+        const linePopupClose = document.getElementById('linePopupClose');
+        lineFloat.addEventListener('click', function(e) {
+            e.preventDefault();
+            linePopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        linePopupClose.addEventListener('click', function() {
+            linePopup.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        document.addEventListener('click', function(e) {
+            if (!linePopup.contains(e.target) && !lineFloat.contains(e.target)) {
+                linePopup.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html> 
